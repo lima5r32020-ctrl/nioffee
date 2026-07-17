@@ -26,6 +26,7 @@
   @keyframes ping { 75%,100% { transform: scale(2); opacity: 0; } }
   .pulse-ring { position:absolute; inset:0; border-radius:1.5rem; box-shadow: 0 0 0 2px rgba(110,231,183,.5); animation: pulseRing 2s ease-out infinite; opacity:.3; }
   @keyframes pulseRing { 0% { transform: scale(1); opacity:.4;} 100% { transform: scale(1.05); opacity:0;} }
+  .logo-img { filter: brightness(1.85) contrast(1.1) drop-shadow(0 0 14px rgba(255,255,255,.18)); }
 </style>
 </head>
 <body class="bg-neutral-950 text-neutral-100">
@@ -39,7 +40,7 @@
       <div class="pointer-events-none absolute inset-0" style="background:radial-gradient(ellipse at top,rgba(16,185,129,.15),transparent 60%)"></div>
 
       <div class="relative flex items-center gap-3 fade-in">
-        <img src="https://storage.googleapis.com/lovable-prod-public-assets/a/v1/ef53849c-35a8-41f6-97bc-ec961838583d/7c629e07-9f49-4edf-8638-6ae073a0b3dc/nio-logo.png" alt="Nio Fibra" class="w-24 h-24 object-contain drop-shadow-lg" onerror="this.onerror=null;this.src='./nio-logo.png';" />
+        <img src="./nio-logo.png" alt="Nio Fibra" class="w-24 h-24 object-contain logo-img" />
         <span class="text-[11px] uppercase tracking-[0.35em] text-neutral-400 font-semibold leading-none">Soluções</span>
       </div>
 
