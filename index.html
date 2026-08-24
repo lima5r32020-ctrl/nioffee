@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Consulta Online - Compensa Fácil</title>
+    <style>
+        :root {
+            --verde: #00A859;
+            --azul: #003399;
+            --cinza-claro: #f4f6f9;
+            --texto: #333;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--cinza-claro);
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        header {
+            background-color: white;
+            padding: 20px 0;
+            text-align: center;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        }
+
+        .logo {
+            max-width: 180px;
+            height: auto;
+            margin-bottom: 10px;
+        }
+
+        header h1 {
+            color: var(--azul);
+            font-size: 1.8rem;
+            margin-bottom: 5px;
+        }
+
+        header p {
+            color: var(--verde);
+            font-weight: 600;
+            letter-spacing: 1px;
+        }
+
+        main {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 30px 20px;
+        }
+
+        .card {
+            background: white;
+            border-radius: 16px;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+            padding: 30px;
+            width: 100%;
+            max-width: 500px;
+        }
+
+        .card h2 {
+            color: var(--azul);
+            text-align: center;
+            margin-bottom: 25px;
+            font-size: 1.5rem;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        label {
+            font-weight: 600;
+            color: var(--texto);
+            margin-bottom: -10px;
+        }
+
+        input {
+            padding: 14px;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: border-color 0.3s;
+        }
+
+        input:focus {
+            outline: none;
+            border-color: var(--verde);
+        }
+
+        .btn-group {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin-top: 10px;
+        }
+
+        button {
+            padding: 16px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.1s;
+            letter-spacing: 0.5px;
+            border: none;
+            color: white;
+        }
+
+        button:active {
+            transform: scale(0.98);
+        }
+
+        .btn-consultar {
+            background-color: var(--verde);
+        }
+
+        .btn-consultar:hover {
+            background-color: #008c4a;
+        }
+
+        .btn-segunda-via {
+            background-color: var(--azul);
+        }
+
+        .btn-segunda-via:hover {
+            background-color: #002266;
+        }
+
+        .btn-pagar {
+            background-color: #FF6B00;
+        }
+
+        .btn-pagar:hover {
+            background-color: #cc5500;
+        }
+
+        #resultado {
+            margin-top: 25px;
+            background-color: var(--cinza-claro);
+            border-radius: 8px;
+            padding: 20px;
+            border-left: 5px solid var(--verde);
+        }
+
+        #resultado h3 {
+            color: var(--azul);
+            margin-bottom: 10px;
+        }
+
+        #resultado p {
+            margin: 8px 0;
+            color: var(--texto);
+        }
+
+        footer {
+            background-color: var(--azul);
+            color: white;
+            text-align: center;
+            padding: 15px;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <img 
+            src="https://logospng.org/wp-content/uploads/cpfl-energia.png" 
+            alt="CPFL Energia" 
+            class="logo"
+        >
+        <h1>Consulta Online</h1>
+        <p>Compensa Fácil</p>
+    </header>
+
+    <main>
+        <div class="card">
+            <h2>Consulte sua solicitação</h2>
+            <form id="consultaForm">
+                <label for="cpf">CPF ou CNPJ</label>
+                <input 
+                    type="text" 
+                    id="cpf" 
+                    name="cpf" 
+                    placeholder="Digite seu CPF ou CNPJ" 
+                    required
+                >
+
+                <label for="instalacao">Número da Instalação</label>
+                <input 
+                    type="text" 
+                    id="instalacao" 
+                    name="instalacao" 
+                    placeholder="Digite o número da instalação" 
+                    required
+                >
+
+                <div class="btn-group">
+                    <button type="submit" class="btn-consultar">Consultar</button>
+                    <button type="button" class="btn-segunda-via" onclick="emitirSegundaVia()">Emitir Segunda Via</button>
+                    <button type="button" class="btn-pagar" onclick="pagarFatura()">Pagar Fatura</button>
+                </div>
+            </form>
+
+            <div id="resultado" style="display: none;"></div>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 CPFL Energia. Todos os direitos reservados.</p>
+    </footer>
+
+    <script>
+        // Ação do formulário de consulta
+        document.getElementById('consultaForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const cpf = document.getElementById('cpf').value.trim();
+            const instalacao = document.getElementById('instalacao').value.trim();
+            const resultado = document.getElementById('resultado');
+            
+            resultado.style.display = 'block';
+            resultado.innerHTML = `
+                <h3>Resultado da Consulta</h3>
+                <p><strong>CPF/CNPJ:</strong> ${cpf}</p>
+                <p><strong>Instalação:</strong> ${instalacao}</p>
+                <p><strong>Status:</strong> <span style="color: #00A859; font-weight: 600;">Em análise</span></p>
+                <p style="margin-top: 10px; font-size: 0.9rem; color: #666;">
+                    Os dados exibidos são fictícios. Integre com a API real para obter informações oficiais.
+                </p>
+            `;
+        });
+
+        // Função para Emitir Segunda Via (simulada)
+        function emitirSegundaVia() {
+            const cpf = document.getElementById('cpf').value.trim();
+            const instalacao = document.getElementById('instalacao').value.trim();
+            if (!cpf || !instalacao) {
+                alert('Preencha CPF/CNPJ e Número da Instalação para emitir a segunda via.');
+                return;
+            }
+            alert(`Segunda via solicitada!\nCPF/CNPJ: ${cpf}\nInstalação: ${instalacao}\n\n(Simulação - integre com a API real)`);
+        }
+
+        // Função para Pagar Fatura (simulada)
+        function pagarFatura() {
+            const cpf = document.getElementById('cpf').value.trim();
+            const instalacao = document.getElementById('instalacao').value.trim();
+            if (!cpf || !instalacao) {
+                alert('Preencha CPF/CNPJ e Número da Instalação para pagar a fatura.');
+                return;
+            }
+            alert(`Redirecionando para pagamento...\nCPF/CNPJ: ${cpf}\nInstalação: ${instalacao}\n\n(Simulação - integre com gateway de pagamento)`);
+        }
+    </script>
+</body>
+</html>
