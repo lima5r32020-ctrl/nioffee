@@ -34,10 +34,21 @@
             box-shadow: 0 2px 8px rgba(0,0,0,0.08);
         }
 
+        .logo-wrapper {
+            display: inline-block;
+            background-color: white;
+            padding: 10px;
+            border-radius: 8px;
+            margin-bottom: 10px;
+        }
+
         .logo {
             max-width: 160px;
             height: auto;
-            margin-bottom: 10px;
+            display: block;
+            /* Garante que o fundo da imagem fique branco, caso a imagem tenha fundo próprio */
+            background-color: white;
+            mix-blend-mode: multiply; /* Remove fundo branco da imagem, fundindo com o wrapper */
         }
 
         header h1 {
@@ -135,11 +146,13 @@
 </head>
 <body>
     <header>
-        <img 
-            src="https://matoleitao.rs.gov.br/wp-content/uploads/2026/01/cpfl.jpg" 
-            alt="CPFL-RGE" 
-            class="logo"
-        >
+        <div class="logo-wrapper">
+            <img 
+                src="https://matoleitao.rs.gov.br/wp-content/uploads/2026/01/cpfl.jpg" 
+                alt="CPFL-RGE" 
+                class="logo"
+            >
+        </div>
         <h1>CPFL-RGE</h1>
         <p>Atendimento Online</p>
     </header>
