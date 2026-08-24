@@ -3,12 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CPFL-RGE - Atendimento Online</title>
+    <title>Atendimento Online</title>
     <style>
         :root {
-            --verde: #00A859;
-            --azul: #003399;
-            --laranja: #FF6B00;
+            --azul-claro: #4da6ff;
+            --azul-escuro: #0066cc;
             --cinza-claro: #f4f6f9;
             --texto: #333;
         }
@@ -28,7 +27,7 @@
         }
 
         header {
-            background-color: white;
+            background-color: #ffffff;
             padding: 20px 0;
             text-align: center;
             box-shadow: 0 2px 8px rgba(0,0,0,0.08);
@@ -36,33 +35,17 @@
 
         .logo-wrapper {
             display: inline-block;
-            background-color: white;
+            background-color: #ffffff;
             padding: 10px;
             border-radius: 8px;
-            margin-bottom: 10px;
         }
 
         .logo {
-            max-width: 160px;
+            max-width: 180px;
             height: auto;
             display: block;
-            /* Garante que o fundo da imagem fique branco, caso a imagem tenha fundo próprio */
-            background-color: white;
-            mix-blend-mode: multiply; /* Remove fundo branco da imagem, fundindo com o wrapper */
-        }
-
-        header h1 {
-            color: var(--azul);
-            font-size: 2rem;
-            margin-bottom: 5px;
-            letter-spacing: 1px;
-        }
-
-        header p {
-            color: var(--verde);
-            font-weight: 600;
-            letter-spacing: 1px;
-            font-size: 1.1rem;
+            background-color: #ffffff;
+            mix-blend-mode: multiply;
         }
 
         main {
@@ -84,7 +67,7 @@
         }
 
         .card h2 {
-            color: var(--azul);
+            color: var(--azul-escuro);
             margin-bottom: 25px;
             font-size: 1.5rem;
         }
@@ -104,39 +87,23 @@
             cursor: pointer;
             text-decoration: none;
             color: white;
+            background-color: var(--azul-claro);
             transition: background-color 0.3s, transform 0.1s;
             letter-spacing: 0.5px;
             border: none;
             text-align: center;
         }
 
+        .btn:hover {
+            background-color: var(--azul-escuro);
+        }
+
         .btn:active {
             transform: scale(0.98);
         }
 
-        .btn-verde {
-            background-color: var(--verde);
-        }
-        .btn-verde:hover {
-            background-color: #008c4a;
-        }
-
-        .btn-azul {
-            background-color: var(--azul);
-        }
-        .btn-azul:hover {
-            background-color: #002266;
-        }
-
-        .btn-laranja {
-            background-color: var(--laranja);
-        }
-        .btn-laranja:hover {
-            background-color: #cc5500;
-        }
-
         footer {
-            background-color: var(--azul);
+            background-color: var(--azul-escuro);
             color: white;
             text-align: center;
             padding: 15px;
@@ -149,34 +116,30 @@
         <div class="logo-wrapper">
             <img 
                 src="https://matoleitao.rs.gov.br/wp-content/uploads/2026/01/cpfl.jpg" 
-                alt="CPFL-RGE" 
+                alt="Logo" 
                 class="logo"
             >
         </div>
-        <h1>CPFL-RGE</h1>
-        <p>Atendimento Online</p>
     </header>
 
     <main>
         <div class="card">
             <h2>Escolha uma opção</h2>
             <div class="btn-group">
-                <a href="https://wa.me/5581984669626?text=Olá!%20Gostaria%20de%20solicitar%20a%202ª%20via%20da%20minha%20fatura." 
-                   target="_blank" class="btn btn-verde">2ª Via</a>
-                <a href="https://wa.me/5581984669626?text=Olá!%20Quero%20aderir%20à%20fatura%20digital." 
-                   target="_blank" class="btn btn-azul">Fatura Digital</a>
+                <a href="https://wa.me/5581984669626?text=Olá!%20Gostaria%20de%20emitir%20a%202ª%20via%20da%20minha%20conta." 
+                   target="_blank" class="btn">Emitir 2ª via da conta</a>
+                <a href="https://wa.me/5581984669626?text=Olá!%20Gostaria%20de%20pagar%20minha%20fatura." 
+                   target="_blank" class="btn">Pagar fatura</a>
                 <a href="https://wa.me/5581984669626?text=Olá!%20Quero%20negociar%20minhas%20dívidas." 
-                   target="_blank" class="btn btn-laranja">Negociação de Dívidas</a>
+                   target="_blank" class="btn">Negociação de dívidas</a>
                 <a href="https://wa.me/5581984669626?text=Olá!%20Preciso%20falar%20com%20um%20atendente." 
-                   target="_blank" class="btn btn-verde">Fala com Atendente</a>
-                <a href="https://wa.me/5581984669626?text=Olá!%20Vim%20pelo%20site%20da%20CPFL-RGE." 
-                   target="_blank" class="btn btn-azul">Falar no WhatsApp</a>
+                   target="_blank" class="btn">Falar com atendente</a>
             </div>
         </div>
     </main>
 
     <footer>
-        <p>&copy; 2026 CPFL-RGE. Todos os direitos reservados.</p>
+        <p>&copy; 2026 Todos os direitos reservados.</p>
     </footer>
 </body>
 </html>
