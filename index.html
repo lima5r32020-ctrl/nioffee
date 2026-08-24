@@ -3,11 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Consulta Online - Compensa Fácil</title>
+    <title>CPFL-RGE - Atendimento Online</title>
     <style>
         :root {
             --verde: #00A859;
             --azul: #003399;
+            --laranja: #FF6B00;
             --cinza-claro: #f4f6f9;
             --texto: #333;
         }
@@ -34,21 +35,23 @@
         }
 
         .logo {
-            max-width: 180px;
+            max-width: 160px;
             height: auto;
             margin-bottom: 10px;
         }
 
         header h1 {
             color: var(--azul);
-            font-size: 1.8rem;
+            font-size: 2rem;
             margin-bottom: 5px;
+            letter-spacing: 1px;
         }
 
         header p {
             color: var(--verde);
             font-weight: 600;
             letter-spacing: 1px;
+            font-size: 1.1rem;
         }
 
         main {
@@ -66,103 +69,59 @@
             padding: 30px;
             width: 100%;
             max-width: 500px;
+            text-align: center;
         }
 
         .card h2 {
             color: var(--azul);
-            text-align: center;
             margin-bottom: 25px;
             font-size: 1.5rem;
-        }
-
-        form {
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-        }
-
-        label {
-            font-weight: 600;
-            color: var(--texto);
-            margin-bottom: -10px;
-        }
-
-        input {
-            padding: 14px;
-            border: 2px solid #e0e0e0;
-            border-radius: 8px;
-            font-size: 1rem;
-            transition: border-color 0.3s;
-        }
-
-        input:focus {
-            outline: none;
-            border-color: var(--verde);
         }
 
         .btn-group {
             display: flex;
             flex-direction: column;
-            gap: 12px;
-            margin-top: 10px;
+            gap: 15px;
         }
 
-        button {
+        .btn {
+            display: block;
             padding: 16px;
             font-size: 1.1rem;
             font-weight: 700;
             border-radius: 8px;
             cursor: pointer;
+            text-decoration: none;
+            color: white;
             transition: background-color 0.3s, transform 0.1s;
             letter-spacing: 0.5px;
             border: none;
-            color: white;
+            text-align: center;
         }
 
-        button:active {
+        .btn:active {
             transform: scale(0.98);
         }
 
-        .btn-consultar {
+        .btn-verde {
             background-color: var(--verde);
         }
-
-        .btn-consultar:hover {
+        .btn-verde:hover {
             background-color: #008c4a;
         }
 
-        .btn-segunda-via {
+        .btn-azul {
             background-color: var(--azul);
         }
-
-        .btn-segunda-via:hover {
+        .btn-azul:hover {
             background-color: #002266;
         }
 
-        .btn-pagar {
-            background-color: #FF6B00;
+        .btn-laranja {
+            background-color: var(--laranja);
         }
-
-        .btn-pagar:hover {
+        .btn-laranja:hover {
             background-color: #cc5500;
-        }
-
-        #resultado {
-            margin-top: 25px;
-            background-color: var(--cinza-claro);
-            border-radius: 8px;
-            padding: 20px;
-            border-left: 5px solid var(--verde);
-        }
-
-        #resultado h3 {
-            color: var(--azul);
-            margin-bottom: 10px;
-        }
-
-        #resultado p {
-            margin: 8px 0;
-            color: var(--texto);
         }
 
         footer {
@@ -177,93 +136,34 @@
 <body>
     <header>
         <img 
-            src="https://logospng.org/wp-content/uploads/cpfl-energia.png" 
-            alt="CPFL Energia" 
+            src="https://matoleitao.rs.gov.br/wp-content/uploads/2026/01/cpfl.jpg" 
+            alt="CPFL-RGE" 
             class="logo"
         >
-        <h1>Consulta Online</h1>
-        <p>Compensa Fácil</p>
+        <h1>CPFL-RGE</h1>
+        <p>Atendimento Online</p>
     </header>
 
     <main>
         <div class="card">
-            <h2>Consulte sua solicitação</h2>
-            <form id="consultaForm">
-                <label for="cpf">CPF ou CNPJ</label>
-                <input 
-                    type="text" 
-                    id="cpf" 
-                    name="cpf" 
-                    placeholder="Digite seu CPF ou CNPJ" 
-                    required
-                >
-
-                <label for="instalacao">Número da Instalação</label>
-                <input 
-                    type="text" 
-                    id="instalacao" 
-                    name="instalacao" 
-                    placeholder="Digite o número da instalação" 
-                    required
-                >
-
-                <div class="btn-group">
-                    <button type="submit" class="btn-consultar">Consultar</button>
-                    <button type="button" class="btn-segunda-via" onclick="emitirSegundaVia()">Emitir Segunda Via</button>
-                    <button type="button" class="btn-pagar" onclick="pagarFatura()">Pagar Fatura</button>
-                </div>
-            </form>
-
-            <div id="resultado" style="display: none;"></div>
+            <h2>Escolha uma opção</h2>
+            <div class="btn-group">
+                <a href="https://wa.me/5581984669626?text=Olá!%20Gostaria%20de%20solicitar%20a%202ª%20via%20da%20minha%20fatura." 
+                   target="_blank" class="btn btn-verde">2ª Via</a>
+                <a href="https://wa.me/5581984669626?text=Olá!%20Quero%20aderir%20à%20fatura%20digital." 
+                   target="_blank" class="btn btn-azul">Fatura Digital</a>
+                <a href="https://wa.me/5581984669626?text=Olá!%20Quero%20negociar%20minhas%20dívidas." 
+                   target="_blank" class="btn btn-laranja">Negociação de Dívidas</a>
+                <a href="https://wa.me/5581984669626?text=Olá!%20Preciso%20falar%20com%20um%20atendente." 
+                   target="_blank" class="btn btn-verde">Fala com Atendente</a>
+                <a href="https://wa.me/5581984669626?text=Olá!%20Vim%20pelo%20site%20da%20CPFL-RGE." 
+                   target="_blank" class="btn btn-azul">Falar no WhatsApp</a>
+            </div>
         </div>
     </main>
 
     <footer>
-        <p>&copy; 2026 CPFL Energia. Todos os direitos reservados.</p>
+        <p>&copy; 2026 CPFL-RGE. Todos os direitos reservados.</p>
     </footer>
-
-    <script>
-        // Ação do formulário de consulta
-        document.getElementById('consultaForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            const cpf = document.getElementById('cpf').value.trim();
-            const instalacao = document.getElementById('instalacao').value.trim();
-            const resultado = document.getElementById('resultado');
-            
-            resultado.style.display = 'block';
-            resultado.innerHTML = `
-                <h3>Resultado da Consulta</h3>
-                <p><strong>CPF/CNPJ:</strong> ${cpf}</p>
-                <p><strong>Instalação:</strong> ${instalacao}</p>
-                <p><strong>Status:</strong> <span style="color: #00A859; font-weight: 600;">Em análise</span></p>
-                <p style="margin-top: 10px; font-size: 0.9rem; color: #666;">
-                    Os dados exibidos são fictícios. Integre com a API real para obter informações oficiais.
-                </p>
-            `;
-        });
-
-        // Função para Emitir Segunda Via (simulada)
-        function emitirSegundaVia() {
-            const cpf = document.getElementById('cpf').value.trim();
-            const instalacao = document.getElementById('instalacao').value.trim();
-            if (!cpf || !instalacao) {
-                alert('Preencha CPF/CNPJ e Número da Instalação para emitir a segunda via.');
-                return;
-            }
-            alert(`Segunda via solicitada!\nCPF/CNPJ: ${cpf}\nInstalação: ${instalacao}\n\n(Simulação - integre com a API real)`);
-        }
-
-        // Função para Pagar Fatura (simulada)
-        function pagarFatura() {
-            const cpf = document.getElementById('cpf').value.trim();
-            const instalacao = document.getElementById('instalacao').value.trim();
-            if (!cpf || !instalacao) {
-                alert('Preencha CPF/CNPJ e Número da Instalação para pagar a fatura.');
-                return;
-            }
-            alert(`Redirecionando para pagamento...\nCPF/CNPJ: ${cpf}\nInstalação: ${instalacao}\n\n(Simulação - integre com gateway de pagamento)`);
-        }
-    </script>
 </body>
 </html>
