@@ -9,6 +9,7 @@
             --azul-claro: #4da6ff;
             --azul-escuro: #0066cc;
             --cinza-claro: #f4f6f9;
+            --cinza-logo: #e5e5e5; /* Tom de cinza para o fundo da logo */
             --texto: #333;
         }
 
@@ -27,7 +28,7 @@
         }
 
         header {
-            background-color: var(--cinza-claro); /* Alterado para cinza claro */
+            background-color: var(--cinza-logo); /* Cinza igual ao fundo da imagem */
             padding: 20px 0;
             text-align: center;
             box-shadow: 0 2px 8px rgba(0,0,0,0.08);
@@ -35,7 +36,7 @@
 
         .logo-wrapper {
             display: inline-block;
-            background-color: var(--cinza-claro); /* Alterado para cinza claro */
+            background-color: var(--cinza-logo); /* Mesmo cinza */
             padding: 10px;
             border-radius: 8px;
         }
@@ -44,8 +45,8 @@
             max-width: 180px;
             height: auto;
             display: block;
-            background-color: var(--cinza-claro); /* Alterado para cinza claro */
-            mix-blend-mode: multiply; /* Continua misturando com o fundo cinza */
+            background-color: var(--cinza-logo); /* Mesmo cinza */
+            mix-blend-mode: multiply; /* Continua misturando para fundir com o fundo */
         }
 
         main {
